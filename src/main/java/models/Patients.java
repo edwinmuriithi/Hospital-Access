@@ -15,8 +15,12 @@ public class Patients {
         this.date_of_birth = date_of_birth;
     }
 
-    public int getId() {git add
+    public int getId() {
         return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getName() {
