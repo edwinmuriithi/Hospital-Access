@@ -6,9 +6,9 @@ public class Patients {
     private int id;
     private String name;
     private  String national_id;
-    private Timestamp date_of_birth;
+    private String date_of_birth;
 
-    public Patients(String name, String national_id, Timestamp date_of_birth) {
+    public Patients(String name, String national_id, String date_of_birth) {
         this.id = id;
         this.name = name;
         this.national_id = national_id;
@@ -31,7 +31,7 @@ public class Patients {
         return national_id;
     }
 
-    public Timestamp getDate_of_birth() {
+    public String getDate_of_birth() {
         return date_of_birth;
     }
 }

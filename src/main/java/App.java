@@ -4,6 +4,7 @@ import models.dao.*;
 import org.sql2o.Connection;
 import org.sql2o.Sql2o;
 
+import static spark.Spark.get;
 import static spark.Spark.post;
 public class App {
     public static void main(String[] args) {
@@ -25,5 +26,21 @@ public class App {
             response.type("application/json");
             return gson.toJson(patients);
         });
+
+        //read patients
+        get("/patient", "application/json", (req, res) -> {
+            if(patientsDao.getAll().size() > 0) {
+                return gson.toJson(patientsDao.getAll());
+            }else {
+                return "{\"message\":\"No patients are currently listed in the database.\"}";
+            }
+        });
+//
+//        //read patients by id number
+//        get("/patient/:patients_id", "application/json", (req, res) -> {
+//            String UserId = req.params("patients_id");
+//            Patients patients = patientsDao.findById(UserId);
+//            return gson.toJson(patients);
+//        });
     }
 }
