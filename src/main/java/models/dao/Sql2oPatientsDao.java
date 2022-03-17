@@ -12,6 +12,8 @@ public class Sql2oPatientsDao implements PatientsDao{
     public Sql2oPatientsDao (Sql2o sql2o) {
         this.sql2o = sql2o;
     }
+
+
     @Override
     public void add(Patients patients) {
         String sql = "INSERT INTO patients (name, national_id, date_of_birth) VALUES (:name, :national_id, :date_of_birth)";

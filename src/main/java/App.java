@@ -24,9 +24,7 @@ public class App {
         Gson gson= new Gson();
         Sql2oTreatmentDao treatmentDao;
         Sql2oPatientsDao patientsDao;
-
-
-        Sql2oHospitalDao hospitalDao = new Sql2oHospitalDao();
+        Sql2oHospitalDao hospitalDao;
 
 
         //Connection to local db
@@ -40,6 +38,7 @@ public class App {
 
         treatmentDao= new Sql2oTreatmentDao(sql2o);
         patientsDao = new Sql2oPatientsDao(sql2o);
+        hospitalDao = new Sql2oHospitalDao(sql2o);
         Connection conn;
         conn = sql2o.open();
 
