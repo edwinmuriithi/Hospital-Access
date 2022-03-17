@@ -7,5 +7,5 @@ import java.util.List;
 public interface PatientsDao {
     void add(Patients patients);
     List<Patients> getAll();
-    Patients findById(String patients_id);
+    Patients findById(String national_id);
 }

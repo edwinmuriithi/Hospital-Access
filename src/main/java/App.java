@@ -7,6 +7,7 @@ import org.sql2o.Sql2o;
 
 import static spark.Spark.get;
 import static spark.Spark.post;
+import java.util.List;
 public class App {
     public static void main(String[] args) {
         Gson gson = new Gson();
@@ -37,13 +38,6 @@ public class App {
                 return "{\"message\":\"No patients are currently listed in the database.\"}";
             }
         });
-//
-//        //read patients by id number
-//        get("/patient/:patients_id", "application/json", (req, res) -> {
-//            String UserId = req.params("patients_id");
-//            Patients patients = patientsDao.findById(UserId);
-//            return gson.toJson(patients);
-//        });
 
         // create new hospital
         post("/hospitals/new", "application/json", (request, response) -> {
@@ -54,13 +48,22 @@ public class App {
             return gson.toJson(hospital);
         });
 
-        //read hospital
+//        //read hospital
         get("/hospital", "application/json", (req, res) -> {
-            if(hospitalDao.getAll().size() > 0) {
+            if (hospitalDao.getAll().size() > 0) {
                 return gson.toJson(hospitalDao.getAll());
-            }else {
+            } else {
                 return "{\"message\":\"No hospitals are currently listed in the database.\"}";
             }
         });
-    }
-}
+
+
+            //read patients by id number
+            get("/patient/:patients_id", "application/json", (req, res) -> {
+                String PatientsId = req.params("patients_id");
+                System.out.println(PatientsId);
+                Patients patients = patientsDao.findById(PatientsId);
+                return gson.toJson(patients);
+
+            });
+        }}
