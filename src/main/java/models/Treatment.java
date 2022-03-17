@@ -2,6 +2,7 @@ package models;
 
 public class Treatment {
 
+
     private int id;
     private String date_of_admission;
     private String disease_name;
@@ -46,4 +47,5 @@ public class Treatment {
     public void setTreatment_administered(String treatment_administered) {
         this.treatment_administered = treatment_administered;
     }
+
 }
