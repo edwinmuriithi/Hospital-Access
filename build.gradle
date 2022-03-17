@@ -7,18 +7,22 @@ version '1.0-SNAPSHOT'
 
 repositories {
     mavenCentral()
+    maven {
+        url 'https://repo.clojars.org'
+        name 'Clojars'
+    }
 }
 
 dependencies {
     testImplementation 'org.junit.jupiter:junit-jupiter-api:5.8.2'
     testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.8.2'
-    implementation 'junit:junit:4.13.1'
+    implementation 'junit:junit:4.13.2'
     implementation 'com.sparkjava:spark-core:2.9.3'
     implementation 'org.slf4j:slf4j-simple:1.7.36'
-    implementation group: 'org.sql2o', name: 'sql2o', version: '1.5.4'
+    implementation group: 'org.sql2o', name: 'sql2o', version: '1.6.0'
     implementation 'com.google.code.gson:gson:2.9.0'
-    implementation group: 'org.postgresql', name: 'postgresql', version: '42.2.2'
-    implementation group: 'postgresql', name: 'postgresql', version: '9.0-801.jdbc4'
+    implementation group: 'org.postgresql', name: 'postgresql', version: '42.3.3'
+    implementation group: 'postgresql', name: 'postgresql', version: '9.3-1102.jdbc41'
 }
 
 test {
