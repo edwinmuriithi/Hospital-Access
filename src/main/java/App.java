@@ -1,3 +1,4 @@
+import models.Hospital;
 import models.Patients;
 import com.google.gson.Gson;
 import models.dao.*;
@@ -13,9 +14,10 @@ public class App {
         Sql2oPatientsDao patientsDao;
 
         String connectionString = "jdbc:postgresql://localhost:5432/hospitalaccess";
-        Sql2o sql2o = new Sql2o(connectionString, "ephu17", "ephu17");
+        Sql2o sql2o = new Sql2o(connectionString, "moringa", "0987654321");
 
         patientsDao = new Sql2oPatientsDao(sql2o);
+        Sql2oHospitalDao hospitalDao = new Sql2oHospitalDao();
         Connection conn;
         conn = sql2o.open();
 
@@ -37,12 +39,31 @@ public class App {
             }
         });
 
-        //read patients by id number
-        get("/patient/:patients_id", "application/json", (req, res) -> {
-            String PatientsId = req.params("patients_id");
-            System.out.println(PatientsId);
-            Patients patients = patientsDao.findById(PatientsId);
-            return gson.toJson(patients);
+        // create new hospital
+        post("/hospitals/new", "application/json", (request, response) -> {
+            Hospital hospital = gson.fromJson(request.body(), Hospital.class);
+            hospitalDao.add(hospital);
+            response.status(201);
+            response.type("application/json");
+            return gson.toJson(hospital);
         });
-    }
-}
+
+//        //read hospital
+        get("/hospital", "application/json", (req, res) -> {
+            if (hospitalDao.getAll().size() > 0) {
+                return gson.toJson(hospitalDao.getAll());
+            } else {
+                return "{\"message\":\"No hospitals are currently listed in the database.\"}";
+            }
+        });
+
+
+            //read patients by id number
+            get("/patient/:patients_id", "application/json", (req, res) -> {
+                String PatientsId = req.params("patients_id");
+                System.out.println(PatientsId);
+                Patients patients = patientsDao.findById(PatientsId);
+                return gson.toJson(patients);
+
+            });
+        }}

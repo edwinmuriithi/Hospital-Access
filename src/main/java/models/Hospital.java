@@ -8,6 +8,7 @@ public class Hospital {
     private String hospitallevel;
 
     public Hospital(String name, String location, String hospitallevel){
+
     this.name= name;
     this.location= location;
     this.hospitallevel = hospitallevel;
