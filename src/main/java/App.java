@@ -32,7 +32,7 @@ public class App {
             return gson.toJson(treatment);
         });
 
-        //read treatment
+        //Get All Treatments
         get("/treatment", "application/json", (req, res) -> {
             if(treatmentDao.getAll().size() > 0) {
                 return gson.toJson(treatmentDao.getAll());
@@ -41,5 +41,12 @@ public class App {
             }
         });
 
+        //Search Treatments
+        get("/treatment/:date_of_admission", "application/json", (req, res) -> {
+            String AdmissionDate = req.params("date_of_admission");
+            System.out.println(AdmissionDate);
+            Treatment treatment = treatmentDao.findById(AdmissionDate);
+            return gson.toJson(treatment);
+        });
     }
 }
