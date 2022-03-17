@@ -30,4 +30,20 @@ public class Treatment {
     public String getTreatment_administered() {
         return treatment_administered;
     }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public void setDate_of_admission(String date_of_admission) {
+        this.date_of_admission = date_of_admission;
+    }
+
+    public void setDisease_name(String disease_name) {
+        this.disease_name = disease_name;
+    }
+
+    public void setTreatment_administered(String treatment_administered) {
+        this.treatment_administered = treatment_administered;
+    }
 }
