@@ -36,10 +36,10 @@ public class Sql2oTreatmentDao implements TreatmentDao{
         }
     }
     @Override
-    public Treatment findById(String national_id) {
+    public Treatment findById(String date_of_admission) {
         try (Connection con = sql2o.open()) {
             return con.createQuery("SELECT * FROM treatment WHERE date_of_admission = :date_of_admission")
-                    .addParameter("national_id", national_id)
+                    .addParameter("date_of_admission", date_of_admission)
                     .executeAndFetchFirst(Treatment.class);
         }
     }
