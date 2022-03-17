@@ -14,7 +14,6 @@ import models.dao.*;
 import org.sql2o.Connection;
 import org.sql2o.Sql2o;
 
-import static models.db.DB.sql2o;
 import static spark.Spark.get;
 import static spark.Spark.post;
 import java.util.List;
@@ -26,15 +25,21 @@ public class App {
         Sql2oTreatmentDao treatmentDao;
         Sql2oPatientsDao patientsDao;
 
-        patientsDao = new Sql2oPatientsDao(sql2o);
+
         Sql2oHospitalDao hospitalDao = new Sql2oHospitalDao();
 
 
         //Connection to local db
-        String connectionString = "jdbc:postgresql://localhost:5432/hospitalaccess";
-        Sql2o sql2o = new Sql2o(connectionString, "muriithi", "123456");
+//        String connectionString = "jdbc:postgresql://localhost:5432/hospitalaccess";
+//        Sql2o sql2o = new Sql2o(connectionString, "muriithi", "123456");
+
+        //    Heroku Db Connect
+          String connectionString = "jdbc:postgresql://ec2-3-216-221-31.compute-1.amazonaws.com:5432/daq0dss1uqjbpp"; //!
+          Sql2o sql2o = new Sql2o(connectionString, "laynxhqaenrxke", "0e0e26df811d068f818734dcc3eb18a0ae91836ddf34c621d55f6a84e1fceb62"); //!
+
 
         treatmentDao= new Sql2oTreatmentDao(sql2o);
+        patientsDao = new Sql2oPatientsDao(sql2o);
         Connection conn;
         conn = sql2o.open();
 
