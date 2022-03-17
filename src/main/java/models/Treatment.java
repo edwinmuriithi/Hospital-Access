@@ -4,12 +4,14 @@ public class Treatment {
 
 
     private int id;
+    private String national_id;
     private String date_of_admission;
     private String disease_name;
     private String treatment_administered;
 
-    public Treatment(int id, String date_of_admission, String disease_name, String treatment_administered) {
+    public Treatment(int id, String national_id, String date_of_admission, String disease_name, String treatment_administered) {
         this.id = id;
+        this.national_id = national_id;
         this.date_of_admission = date_of_admission;
         this.disease_name = disease_name;
         this.treatment_administered = treatment_administered;

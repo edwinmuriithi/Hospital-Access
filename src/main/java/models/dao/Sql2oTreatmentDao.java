@@ -16,8 +16,8 @@ public class Sql2oTreatmentDao implements TreatmentDao{
     }
     @Override
     public void add(Treatment treatment) {
-        String sql = "INSERT INTO treatment (date_of_admission, disease_name, treatment_administered) " +
-                "VALUES(:date_of_admission, :disease_name, :treatment_administered)";
+        String sql = "INSERT INTO treatment (national_id, date_of_admission, disease_name, treatment_administered) " +
+                "VALUES(national_id, :date_of_admission, :disease_name, :treatment_administered)";
         try (Connection con = sql2o.open()) {
             int id = (int) con.createQuery(sql, true)
                     .bind(treatment)
@@ -36,10 +36,10 @@ public class Sql2oTreatmentDao implements TreatmentDao{
         }
     }
     @Override
-    public Treatment findById(String date_of_admission) {
+    public Treatment findById(String national_id) {
         try (Connection con = sql2o.open()) {
-            return con.createQuery("SELECT * FROM treatment WHERE date_of_admission = :date_of_admission")
-                    .addParameter("date_of_admission", date_of_admission)
+            return con.createQuery("SELECT * FROM treatment WHERE national_id = :national_id")
+                    .addParameter("national_id", national_id)
                     .executeAndFetchFirst(Treatment.class);
         }
     }

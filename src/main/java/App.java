@@ -62,10 +62,10 @@ public class App {
         });
 
         //Search Treatments
-        get("/treatment/:date_of_admission", "application/json", (req, res) -> {
-            String AdmissionDate = req.params("date_of_admission");
-            System.out.println(AdmissionDate);
-            Treatment treatment = treatmentDao.findById(AdmissionDate);
+        get("/treatment/:national_id", "application/json", (req, res) -> {
+            String NationalId = req.params("national_id");
+            System.out.println(NationalId);
+            Treatment treatment = treatmentDao.findById(NationalId);
             return gson.toJson(treatment);
         });
 

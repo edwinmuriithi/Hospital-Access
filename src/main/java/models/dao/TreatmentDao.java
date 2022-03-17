@@ -9,5 +9,5 @@ public interface TreatmentDao {
 
     List<Treatment> getAll();
 
-    Treatment findById(String date_of_admission);
+    Treatment findById(String national_id);
 }
