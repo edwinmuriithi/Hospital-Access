@@ -1,22 +1,25 @@
 package models.dao;
 
 import models.Hospital;
-import models.db.DB;
+
 import org.sql2o.Connection;
 import org.sql2o.Sql2o;
 import org.sql2o.Sql2oException;
 
 import java.util.List;
 
-import static models.db.DB.sql2o;
+
 
 
 public class Sql2oHospitalDao implements HospitalDao {
+    private final Sql2o sql2o;
     public Sql2oHospitalDao() {
+        this.sql2o = sql2o;
     }
 
     @Override
     public void add(Hospital hospital) {
+
         try (Connection conn = sql2o.open()) {
             String sql = "INSERT INTO hospitals (name, location, hospitallevel) VALUES (:name, :location, :hospitallevel)";
             String id = (String) conn.createQuery(sql, true)
