@@ -13,7 +13,7 @@ import java.util.List;
 
 public class Sql2oHospitalDao implements HospitalDao {
     private final Sql2o sql2o;
-    public Sql2oHospitalDao(Sql2o sql2o) {this.sql2o = this.sql2o;}
+    public Sql2oHospitalDao(Sql2o sql2o) {this.sql2o = sql2o;}
     @Override
     public void add(Hospital hospital) {
 
