@@ -34,8 +34,8 @@ public class App {
 //        Sql2o sql2o = new Sql2o(connectionString, "muriithi", "123456");
 
         //    Heroku Db Connect
-          String connectionString = "jdbc:postgresql://ec2-3-216-221-31.compute-1.amazonaws.com:5432/daq0dss1uqjbpp"; //!
-          Sql2o sql2o = new Sql2o(connectionString, "laynxhqaenrxke", "0e0e26df811d068f818734dcc3eb18a0ae91836ddf34c621d55f6a84e1fceb62"); //!
+          String connectionString = "jdbc:postgresql://ec2-52-44-209-165.compute-1.amazonaws.com:5432/dcoda2pl8k4cvr"; //!
+          Sql2o sql2o = new Sql2o(connectionString, "knbsqhvnmocmem", "3136b369e1c2035a08556b8b695c3da0cbb4669e3765838b94352674fafe1915"); //!
 
 
         treatmentDao= new Sql2oTreatmentDao(sql2o);
