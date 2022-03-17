@@ -36,8 +36,8 @@ public class Sql2oPatientsDao implements PatientsDao{
     @Override
     public Patients findById(String national_id) {
         try (Connection con = sql2o.open()) {
-            return con.createQuery("SELECT * FROM patients WHERE patients_id = :patients_id")
-                    //.addParameter("national_id", national_id)
+            return con.createQuery("SELECT * FROM patients WHERE national_id = :national_id")
+                    .addParameter("national_id", national_id)
                     .executeAndFetchFirst(Patients.class);
         }
     }
