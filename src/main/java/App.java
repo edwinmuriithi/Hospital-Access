@@ -60,7 +60,7 @@ public class App {
             response.status(201);
             response.type("application/json");
             return gson.toJson(treatment);
-            Log.v(TAG, "index=" + i);
+            // Log.v(TAG, "index=" + i);
         });
 
         //Get All Treatments
