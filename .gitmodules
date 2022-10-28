@@ -1,0 +1,3 @@
+[submodule "prescription"]
+	path = prescription
+	url = https://github.com/edwinmuriithi/Hospital-Access.git
