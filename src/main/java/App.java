@@ -11,6 +11,7 @@ import models.Patients;
 import com.google.gson.Gson;
 import models.dao.*;
 
+import org.eclipse.jetty.util.log.Log;
 import org.sql2o.Connection;
 import org.sql2o.Sql2o;
 
@@ -59,6 +60,7 @@ public class App {
             response.status(201);
             response.type("application/json");
             return gson.toJson(treatment);
+            Log.v(TAG, "index=" + i);
         });
 
         //Get All Treatments
